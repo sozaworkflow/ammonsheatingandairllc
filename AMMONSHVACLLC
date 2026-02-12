@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ammons Heating & Air LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#3E4F3C;
+  --dark:#1B1F1A;
+  --light:#E8ECE6;
+  --accent:#9FB08F;
+  --card:#F4F6F2;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--light);color:var(--dark);}
+.container{width:92%;max-width:1200px;margin:auto;}
+
+.top-bar{
+  background:var(--dark);
+  padding:22px 0;
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:1000;
+  transition:.3s ease;
+}
+.top-bar.shrink{
+  padding:12px 0;
+  box-shadow:0 4px 15px rgba(0,0,0,.4);
+}
+.brand{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.brand-name{
+  color:#fff;
+  font-weight:900;
+  font-size:clamp(1.1rem,2vw,1.6rem);
+  text-transform:uppercase;
+}
+.nav-actions{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+.brand-phone a{
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:700;
+}
+.book-btn{
+  background:var(--primary);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:30px;
+  font-weight:700;
+  text-decoration:none;
+  transition:.3s ease;
+  font-size:.9rem;
+}
+.book-btn:hover{transform:translateY(-2px);}
+
+.hero{
+  padding:150px 0 90px;
+  background:
+  linear-gradient(rgba(27,31,26,.95),rgba(27,31,26,.95)),
+  url("https://www.transparenttextures.com/patterns/camo.png");
+  color:#fff;
+}
+.hero-inner{
+  display:flex;
+  align-items:flex-start;
+  gap:45px;
+}
+.hero-logo{
+  width:clamp(170px,20vw,230px);
+}
+.trust-pill{
+  margin-top:20px;
+  padding:18px 25px;
+  border-radius:50px;
+  border:2px solid var(--accent);
+  background:rgba(62,79,60,.25);
+  font-weight:700;
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+}
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  background:var(--primary);
+  color:#fff;
+  padding:14px 28px;
+  border-radius:50px;
+  font-weight:700;
+  text-decoration:none;
+  transition:.3s ease;
+}
+.btn:hover{transform:translateY(-2px);}
+
+.section{padding:80px 0;}
+.section-title{
+  font-size:clamp(1.4rem,3vw,2rem);
+  margin-bottom:35px;
+}
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+.card{
+  background:var(--card);
+  padding:25px;
+  border-radius:16px;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+  transition:.3s ease;
+}
+.card:hover{transform:translateY(-5px);}
+
+.form-section{
+  background:#111814;
+  color:#fff;
+  padding:90px 20px;
+}
+.form-wrapper{max-width:600px;margin:auto;}
+
+form input, form textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:15px;
+  border-radius:8px;
+  border:none;
+  font-family:inherit;
+}
+form button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:30px;
+  background:var(--primary);
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+  transition:.3s ease;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+}
+form button:hover{transform:translateY(-2px);}
+
+.spinner{
+  width:18px;
+  height:18px;
+  border:3px solid rgba(255,255,255,0.4);
+  border-top:3px solid #fff;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+  display:none;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+.success-message{
+  display:none;
+  margin-top:20px;
+  padding:15px;
+  background:rgba(159,176,143,0.2);
+  border:1px solid var(--accent);
+  border-radius:10px;
+  text-align:center;
+  animation:fadeIn .5s ease forwards;
+}
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+.animate{
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.animate.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media(max-width:768px){
+  .hero-inner{flex-direction:column;}
+  .hero-logo{width:180px;}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar" id="navbar">
+  <div class="container brand">
+    <div class="brand-name">Ammons Heating & Air LLC</div>
+    <div class="nav-actions">
+      <div class="brand-phone">
+        <a href="tel:9103368148">(910) 336-8148</a>
+      </div>
+      <a href="#book" class="book-btn">Book Now</a>
+    </div>
+  </div>
+</div>
+
+<section class="hero animate">
+  <div class="container hero-inner">
+    <img src="YOUR_BASE64_LOGO_HERE" class="hero-logo" alt="Logo">
+    <div>
+      <h1>Serving Salemburg, Fayetteville & Surrounding Areas</h1>
+      <div class="trust-pill">
+        ⭐ 5.0 Star Rating (105+ Reviews)
+        ✓ 10+ Years Experience
+        ✓ Licensed & Insured
+        ✓ Open 24 Hours
+      </div>
+      <a href="tel:9103368148" class="btn">(910) 336-8148 — Call Now</a>
+    </div>
+  </div>
+</section>
+
+<section class="container section animate">
+  <h2 class="section-title">Our HVAC Services</h2>
+  <div class="card-grid">
+    <div class="card"><h3>AC Repair</h3><p>Quick diagnosis and reliable air conditioning repairs to restore comfort fast.</p></div>
+    <div class="card"><h3>Heating Repair</h3><p>Keep your home warm with expert furnace and heat pump service.</p></div>
+    <div class="card"><h3>System Installation</h3><p>Professional installation for new HVAC systems tailored to your home.</p></div>
+    <div class="card"><h3>Commercial HVAC</h3><p>Dependable service for local businesses and commercial properties.</p></div>
+  </div>
+</section>
+
+<section class="container section animate">
+  <h2 class="section-title">Why Choose Ammons Heating & Air?</h2>
+  <div class="card-grid">
+    <div class="card"><h3>Experienced Professionals</h3><p>Over 10 years delivering reliable HVAC solutions across Sampson County.</p></div>
+    <div class="card"><h3>Honest Diagnostics</h3><p>We fix what’s needed — no unnecessary upsells.</p></div>
+    <div class="card"><h3>Fast Response</h3><p>Quick scheduling and emergency service available 24/7.</p></div>
+    <div class="card"><h3>Locally Owned</h3><p>Proudly serving Salemburg, Fayetteville, and nearby communities.</p></div>
+  </div>
+</section>
+
+<section id="book" class="form-section animate">
+  <div class="form-wrapper">
+    <h2 style="text-align:center;margin-bottom:25px;">Book Your Service Appointment</h2>
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email Address" required>
+      <input type="tel" name="phone" placeholder="Phone Number" required>
+      <textarea name="message" rows="4" placeholder="Describe your HVAC issue..." required></textarea>
+      <button type="submit">
+        <span>Submit Request</span>
+        <div class="spinner" id="spinner"></div>
+      </button>
+    </form>
+    <div class="success-message" id="successMessage">
+      ✅ Thank you! Your request has been submitted successfully.
+    </div>
+  </div>
+</section>
+
+<script>
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{
+  if(window.scrollY>40) navbar.classList.add('shrink');
+  else navbar.classList.remove('shrink');
+});
+
+const elements=document.querySelectorAll('.animate');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('show');
+    else entry.target.classList.remove('show');
+  });
+},{threshold:0.15});
+elements.forEach(el=>observer.observe(el));
+
+const form=document.getElementById('contactForm');
+const spinner=document.getElementById('spinner');
+const successMessage=document.getElementById('successMessage');
+
+form.addEventListener('submit',async function(e){
+  e.preventDefault();
+  spinner.style.display='inline-block';
+  const formData=new FormData(form);
+  try{
+    const response=await fetch("https://formspree.io/f/xzdaerev",{
+      method:"POST",
+      body:formData,
+      headers:{ 'Accept':'application/json' }
+    });
+    spinner.style.display='none';
+    if(response.ok){
+      form.reset();
+      successMessage.style.display='block';
+    } else {
+      alert("There was an issue submitting the form.");
+    }
+  } catch(error){
+    spinner.style.display='none';
+    alert("Network error.");
+  }
+});
+</script>
+
+</body>
+</html>
